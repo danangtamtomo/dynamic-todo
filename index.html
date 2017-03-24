@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jquery Todo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <ul class="list-todo">
+  </ul>
+  <input type="text" name="do" id="inputDo">
+  <!-- <input type="text" name="isDone" id="inputIsDone"> -->
+  <button type="button" name="button" id="submitTodo">Add</button>
+  <script type="text/javascript">
+    $('#submitTodo').on('click', () => {
+      $('ul').append(`<li id="">${$('#inputDo').val()} <input type="checkbox"/> <button class="del">X</button></li>`)
+      $('#inputDo').val('')
+    })
+
+    $('.list-todo').on('click', ".del", deleteTodo)
+
+    function deleteTodo() {
+      $(this).parent('li').remove()
+    }
+  </script>
+</body>
+
+</html>
